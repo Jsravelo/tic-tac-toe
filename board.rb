@@ -21,7 +21,7 @@ class Board
   end
 
   def player_choice
-    print "Select an option from \n['a1','a2','a3']\n['b1','b2','b3']\n['c1','c2','c3']\n"
+    print "Select an option from \n----------\n|a1|a2|a3|\n----------\n|b1|b2|b3|\n----------\n|c1|c2|c3|\n----------\n"
     gets.chomp.to_sym
   end
 
@@ -80,5 +80,5 @@ class Board
 end
 
 b = Board.new
-# b.print_board
+b.print_board
 b.play
