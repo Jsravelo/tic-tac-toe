@@ -45,11 +45,11 @@ class Board
       choice = player_choice
       update_cell(choice, player1)
       print_board
-      break if check_diagonal? == true
+      break if winning_condition == true
       choice2 = player_choice
       update_cell(choice2, player2)
       print_board
-      break if check_diagonal? == true
+      break if winning_condition == true
     end
   end
 
@@ -75,7 +75,7 @@ class Board
   end
 
   def winning_condition
-    return true if check_vertical? == true || check_horizontal? == true || check_horizontal? == true
+    return true if check_vertical? == true || check_horizontal? == true || check_diagonal? == true
   end
 
 end
