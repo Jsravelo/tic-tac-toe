@@ -1,5 +1,4 @@
 class Board
-
   attr_accessor :player1, :player2
 
   def initialize
@@ -13,9 +12,9 @@ class Board
   end
 
   def print_board
-    puts "-------"
+    puts '-------'
     @board.each do |row|
-      print "|"
+      print '|'
       row.each { |cell| print "#{cell}|" }
       puts "\n-------"
     end
@@ -46,6 +45,7 @@ class Board
       update_cell(choice, player1)
       print_board
       break if winning_condition == true
+
       choice2 = player_choice
       update_cell(choice2, player2)
       print_board
@@ -56,28 +56,27 @@ class Board
   def check_horizontal?
     @board.each do |row|
       return true if [row[0], row[1], row[2]].uniq == [player1] ||
-      [row[0], row[1], row[2]].uniq == [player2]
+                     [row[0], row[1], row[2]].uniq == [player2]
     end
   end
 
   def check_vertical?
     @board.transpose.each do |row|
       return true if [row[0], row[1], row[2]].uniq == [player1] ||
-      [row[0], row[1], row[2]].uniq == [player2]
+                     [row[0], row[1], row[2]].uniq == [player2]
     end
   end
 
   def check_diagonal?
     1.times do |col|
-      return true if [@board[0][col], @board[1][col+1],@board[2][col+2]].uniq == [player1] ||
-      [@board[0][col], @board[1][col+1],@board[2][col+2]].uniq == [player2]
+      return true if [@board[0][col], @board[1][col + 1], @board[2][col + 2]].uniq == [player1] ||
+                     [@board[0][col], @board[1][col + 1], @board[2][col + 2]].uniq == [player2]
     end
   end
 
   def winning_condition
-    return true if check_vertical? == true || check_horizontal? == true || check_diagonal? == true
+    true if check_vertical? == true || check_horizontal? == true || check_diagonal? == true
   end
-
 end
 
 b = Board.new
